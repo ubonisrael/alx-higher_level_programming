@@ -4,8 +4,8 @@ for x in range(0, 9):
     y = a
     while y < 10:
         if x < 8 or y < 9:
-            print(f"{x}{y}, ", end='')
+            print("{}{}, ".format(x, y), end='')
         else:
-            print(f"{x}{y}")
+            print("{}{}".format(x, y))
         y += 1
     a += 1

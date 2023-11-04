@@ -1,48 +1,49 @@
 #include "lists.h"
 
 /**
- * get_list_len - gets the length of a list
+ * rev_list - reverses a linked list
  * @head: pointer to head of list
- * Return: length of list
+ * Return: void
  */
 
-int get_list_len(listint_t **head)
+void rev_list(listint_t **head)
 {
-	int len = 0;
-	listint_t *current = *head;
+	listint_t *prev, *current, *next;
 
+	prev = NULL;
+	current = *head;
 	while (current)
 	{
-		len++;
-		current = current->next;
+		next = current->next;
+		current->next = prev;
+		prev = current;
+		current = next;
 	}
-	return (len);
+	*head = prev;
 }
 
 /**
- * cpy_list_arr - copies the contents of a list to an array
- * @head: pointer to head of list
- * Return: pointer to array
+ * compare_lists - compares two lists
+ * @head1: pointer to head of first list
+ * @head2: pointer to head of second list
+ * Return: 1 if both lists are equal else 0
  */
-
-int *cpy_list_arr(listint_t **head)
+int compare_lists(listint_t **head1, listint_t **head2)
 {
-	int len = get_list_len(head), i = 0;
-	int *int_arr = malloc(sizeof(int) * len);
-	listint_t *current = *head;
+	listint_t *tmp1, *tmp2;
 
-	if (int_arr == NULL)
+	tmp1 = *head1;
+	tmp2 = *head2;
+	while (tmp1 != NULL && tmp2 != NULL)
 	{
-		printf("Malloc error\n");
-		exit(1);
+		if (tmp1->n != tmp2->n)
+			return (0);
+		tmp1 = tmp1->next;
+		tmp2 = tmp2->next;
 	}
-	while (current)
-	{
-		int_arr[i] = current->n;
-		current = current->next;
-		i++;
-	}
-	return (int_arr);
+	if (tmp1 != NULL || tmp2 != NULL)
+		return (0);
+	return (1);
 }
 
 /**
@@ -53,20 +54,37 @@ int *cpy_list_arr(listint_t **head)
 
 int is_palindrome(listint_t **head)
 {
-	int x, len = get_list_len(head);
-	int *arr;
+	listint_t *mid_ptr, *fast_ptr, *prev_slow_ptr, *slow_ptr, *second_half;
+	int cmp;
 
-	if (len == 0)
+	if (*head == NULL)
 		return (1);
-	arr = cpy_list_arr(head);
-	for (x = 0; x < len / 2; x++)
+	mid_ptr = NULL;
+	slow_ptr = fast_ptr = *head;
+	while (fast_ptr != NULL && fast_ptr->next != NULL)
 	{
-		if (arr[x] != arr[len - x - 1])
-		{
-			free(arr);
-			return (0);
-		}
+		prev_slow_ptr = slow_ptr;
+		slow_ptr = slow_ptr->next;
+		fast_ptr = fast_ptr->next->next;
 	}
-	free(arr);
-	return (1);
+	if (fast_ptr != NULL)
+	{
+		mid_ptr = slow_ptr;
+		slow_ptr = slow_ptr->next;
+	}
+	second_half = slow_ptr;
+	prev_slow_ptr->next = NULL;
+	rev_list(&second_half);
+	cmp = compare_lists(head, &second_half);
+	rev_list(&second_half);
+	if (mid_ptr != NULL)
+	{
+		prev_slow_ptr->next = mid_ptr;
+		mid_ptr->next = second_half;
+	}
+	else
+	{
+		prev_slow_ptr->next = second_half;
+	}
+	return (cmp);
 }

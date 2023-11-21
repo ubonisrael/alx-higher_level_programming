@@ -65,14 +65,14 @@ class Square:
         """
         print_str = ""
         if self.__size == 0:
-            return "\n"
+            return '\n'
         else:
             for new_line in range(self.__position[1]):
-                print_str += "\n"
+                print_str += '\n'
             for x in range(self.__size):
                 for space in range(self.__position[0]):
-                    print_str += " "
+                    print_str += ' '
                 for y in range(self.__size):
-                    print_str += "#"
-                print_str += "\n"
+                    print_str += '#'
+                print_str += '\n'
             return print_str

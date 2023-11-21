@@ -32,18 +32,25 @@ class Square:
     def __eq__(self, other):
         """ Checks whether this instance is equal with another. """
         return self.__size == other.size
+
     def __le__(self, other):
-        """ Checks whether this instance is less than or equal with another. """
+        """ Checks whether this instance is less than or equal with
+        another.
+        """
         return self.__size <= other.size
+
     def __lt__(self, other):
         """ Checks whether this instance is less than with another. """
         return self.__size < other.size
+
     def __ne__(self, other):
         """ Checks whether this instance is not equal with another. """
         return self.__size != other.size
+
     def __gt__(self, other):
         """ Checks whether this instance is greater than another. """
         return self.__size > other.size
+
     def __ge__(self, other):
         """ Checks whether this instance is greater than
         or equal with another.

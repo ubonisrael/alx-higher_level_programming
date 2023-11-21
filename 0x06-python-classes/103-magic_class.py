@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """Corresponding code for MagicClass Bytecode. """
-import dis
+
 
 class MagicClass:
     """ Initiates a class for a circle. """
@@ -17,6 +17,3 @@ class MagicClass:
     def circumference(self):
         """ Calculates the circumference of the circle. """
         return 2 * math.pi * self.__radius
-
-
-print(dis.dis(MagicClass))

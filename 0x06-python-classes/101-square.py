@@ -18,7 +18,6 @@ class Square:
 
     def my_print(self):
         """ Prints the square to stdout with the hash character. """
-        tracker = 0
         if self.__size == 0:
             print()
         else:
@@ -64,12 +63,16 @@ class Square:
         """ Used to make the Square class when printed
         call the my_print function.
         """
-        for new_line in range(self.__position[1]):
-            print()
-        for x in range(0, self.__size):
-            for space in range(self.__position[0]):
-                print(" ", end="")
-            for y in range(0, self.__size):
-                print("#", end="")
-            print()
-        return ""
+        print_str = ""
+        if self.__size == 0:
+            return print_str
+        else:
+            for new_line in range(self.__position[1]):
+                print_str += '\n'
+            for x in range(0, self.__size):
+                for space in range(self.__position[0]):
+                    print_str += ' '
+                for y in range(0, self.__size):
+                    print_str += '#'
+                print_str += '\n'
+            return print_str

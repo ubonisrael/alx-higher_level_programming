@@ -22,13 +22,10 @@ class Square:
         if self.__size == 0:
             print()
         else:
-            while tracker < self.__position[1]:
-                tracker += 1
+            for new_line in range(self.__position[1]):
                 print()
             for x in range(0, self.__size):
-                tracker = 0
-                while tracker < self.__position[0]:
-                    tracker += 1
+                for space in range(self.__position[0]):
                     print(" ", end="")
                 for y in range(0, self.__size):
                     print("#", end="")
@@ -57,7 +54,8 @@ class Square:
     def position(self, value):
         """ Sets the position of the square to a new one. """
         if isinstance(value, tuple) and len(value) == 2 and \
-           isinstance(value[0], int) and isinstance(value[1], int):
+           isinstance(value[0], int) and isinstance(value[1], int)\
+           and value[0] >= 0 and value[1] >= 0:
             self.__position = value
         else:
             raise TypeError('position must be a tuple of 2 positive integers')

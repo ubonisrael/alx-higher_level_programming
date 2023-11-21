@@ -64,5 +64,12 @@ class Square:
         """ Used to make the Square class when printed
         call the my_print function.
         """
-        self.my_print()
+        for new_line in range(self.__position[1]):
+            print()
+        for x in range(0, self.__size):
+            for space in range(self.__position[0]):
+                print(" ", end="")
+            for y in range(0, self.__size):
+                print("#", end="")
+            print()
         return ""

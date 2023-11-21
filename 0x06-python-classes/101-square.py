@@ -23,10 +23,10 @@ class Square:
         else:
             for new_line in range(self.__position[1]):
                 print()
-            for x in range(0, self.__size):
+            for x in range(self.__size):
                 for space in range(self.__position[0]):
                     print(" ", end="")
-                for y in range(0, self.__size):
+                for y in range(self.__size):
                     print("#", end="")
                 print()
 
@@ -74,5 +74,6 @@ class Square:
                     print_str += ' '
                 for y in range(self.__size):
                     print_str += '#'
-                print_str += '\n'
+                if x + 1 < self.__size:
+                    print_str += '\n'
             return print_str

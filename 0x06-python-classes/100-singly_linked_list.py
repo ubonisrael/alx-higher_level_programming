@@ -51,7 +51,7 @@ class SinglyLinkedList:
         if self.__head is None:
             self.__head = new_node
             return
-        while current_node != None:
+        while current_node is not None:
             if current_node.data > new_node.data:
                 break
             prev_node = current_node
@@ -72,7 +72,7 @@ class SinglyLinkedList:
         if self.__head is None:
             return print_str
         current_node = self.__head
-        while current_node != None:
+        while current_node is not None:
             print_str += "{:d}".format(current_node.data)
             if current_node.next_node is not None:
                 print_str += "\n"

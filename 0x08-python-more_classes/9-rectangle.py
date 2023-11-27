@@ -53,6 +53,10 @@ class Rectangle:
             return 0
         return 2 * (self.__width + self.__height)
 
+    @classmethod
+    def square(cls, size=0):
+        return Rectangle(size, size)
+
     @staticmethod
     def bigger_or_equal(rect_1, rect_2):
         """ Returns the biggest rectangle based on the area. """

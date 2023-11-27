@@ -112,3 +112,19 @@ Write a class Rectangle that defines a rectangle by: (based on 4-rectangle.py)
 
 - Print the message Bye rectangle... (... being 3 dots not ellipsis) when an instance of Rectangle is deleted
 - You are not allowed to import any module
+
+6. How many instances
+Write a class Rectangle that defines a rectangle by: (based on 5-rectangle.py)
+
+- Public class attribute number_of_instances:
+  - Initialized to 0
+  - Incremented during each new instance instantiation
+  - Decremented during each instance deletion
+
+7. Change representation
+Write a class Rectangle that defines a rectangle by: (based on 6-rectangle.py)
+
+- Public class attribute print_symbol:
+  - Initialized to #
+  - Used as symbol for string representation
+  - Can be any type

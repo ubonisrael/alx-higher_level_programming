@@ -4,10 +4,13 @@
 
 class Rectangle:
     """ Creates a rectangle object. """
+    number_of_instances = 0
+
     def __init__(self, width=0, height=0):
         """ Initializes the rectangle object. """
         self.width = width
         self.height = height
+        Rectangle.number_of_instances += 1
 
     @property
     def width(self):
@@ -66,3 +69,8 @@ class Rectangle:
         recreate a new instance by using eval().
         """
         return "Rectangle({}, {})".format(self.__width, self.__height)
+
+    def __del__(self):
+        """ Prints a goodbye message then deletes an instance. """
+        print("Bye rectangle...")
+        Rectangle.number_of_instances -= 1

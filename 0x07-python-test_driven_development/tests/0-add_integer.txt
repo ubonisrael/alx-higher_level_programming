@@ -1,0 +1,49 @@
+==========================
+How to use add_integer.py
+==========================
+
+Numbers
+=======
+
+``add_integer`` returns the summation of its arguments. For numbers,
+that value is equivalent to using the ``+`` operator.
+
+::
+
+	>>> add_integer = __import__('0-add_integer').add_integer
+	>>> add_integer(1, 2)
+	3
+	>>> add_integer(-2, 2)
+	0
+	>>> add_integer(-2, -2)
+	-4
+
+When only one argument is provided, the second argument is assumd to be 98
+
+::
+
+	>>> add_integer(0)
+	98
+
+It also works with floating-point values, though it converts them to integers
+first.
+
+::
+
+	>>> add_integer(2.3, 3)
+	5
+	>>> add_integer(2.3, 4.6)
+	6
+
+When a non integer or float is passed to the function, a TypeError is raised.
+
+::
+
+	>>> add_integer('98', 2)
+	Traceback (most recent call last):
+	    ...
+	TypeError: a must be an integer
+	>>> add_integer(8, 'but')
+	Traceback (most recent call last):
+	    ...
+	TypeError: b must be an integer

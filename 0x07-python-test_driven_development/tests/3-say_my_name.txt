@@ -1,0 +1,31 @@
+=====================
+Help for say_my_name
+=====================
+
+``say_my_name(first_name, last_name="")`` is a function that prints a name.
+Both arguments to the function have to be strings else an error is raised.
+If last_name is not passed, an empty string is used
+
+::
+
+	>>> say_my_name = __import__('3-say_my_name').say_my_name
+	>>> say_my_name('Ubon', 'Israel')
+	My name is Ubon Israel
+	>>> say_my_name('Ubon', '1000')
+	My name is Ubon 1000
+	>>> say_my_name('Ubon')
+	My name is Ubon 
+	>>> say_my_name()
+	Traceback (most recent call last):
+	    ...
+	TypeError: first_name must be a string
+	>>> say_my_name(1000, 'Israel')
+	Traceback (most recent call last):
+	    ...
+	TypeError: first_name must be a string
+	>>> say_my_name('', 'Israel')
+	My name is  Israel
+	>>> say_my_name('Ubon', 12)
+	Traceback (most recent call last):
+	    ...
+	TypeError: last_name must be a string

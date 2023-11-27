@@ -95,9 +95,20 @@ Write a class Rectangle that defines a rectangle by: (based on 1-rectangle.py)
 - You are not allowed to import any module
 
 3. String representation
-mandatory
 Write a class Rectangle that defines a rectangle by: (based on 2-rectangle.py)
 
 - print() and str() should print the rectangle with the character #: (see example below)
   - if width or height is equal to 0, return an empty string
+- You are not allowed to import any module
+
+4. Eval is magic
+Write a class Rectangle that defines a rectangle by: (based on 3-rectangle.py)
+
+- repr() should return a string representation of the rectangle to be able to recreate a new instance by using eval() (see example below)
+- You are not allowed to import any module
+
+5. Detect instance deletion
+Write a class Rectangle that defines a rectangle by: (based on 4-rectangle.py)
+
+- Print the message Bye rectangle... (... being 3 dots not ellipsis) when an instance of Rectangle is deleted
 - You are not allowed to import any module

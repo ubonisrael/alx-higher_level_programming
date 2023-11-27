@@ -56,6 +56,7 @@ class Rectangle:
         for y in range(self.__height):
             for x in range(self.__width):
                 shape += "#"
-            shape += "\n"
+            if y + 1 < self.__height:
+                shape += "\n"
 
         return shape

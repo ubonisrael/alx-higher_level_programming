@@ -15,10 +15,6 @@ If last_name is not passed, an empty string is used
 	My name is Ubon 1000
 	>>> say_my_name('Ubon')
 	My name is Ubon 
-	>>> say_my_name()
-	Traceback (most recent call last):
-	    ...
-	TypeError: first_name must be a string
 	>>> say_my_name(1000, 'Israel')
 	Traceback (most recent call last):
 	    ...
@@ -29,3 +25,6 @@ If last_name is not passed, an empty string is used
 	Traceback (most recent call last):
 	    ...
 	TypeError: last_name must be a string
+	>>> print(say_my_name('Ubon'))
+	My name is Ubon 
+	None

@@ -1,5 +1,6 @@
-#include <stdio.h>
+#define PY_SSIZE_T_CLEAN
 #include <Python.h>
+#include <stdio.h>
 
 /**
  * print_python_list_info - prints some basic info about python lists
@@ -18,7 +19,7 @@ void print_python_list_info(PyObject *p)
 	printf("[*] Size of the Python List = %ld\n", len);
 	list = (PyListObject *)p;
 	printf("[*] Allocated = %ld\n", list->allocated);
-	for (; i < size; i++)
+	for (; i < len; i++)
 	{
 		item = PyList_GetItem(p, i);
 		printf("Element %d: %s\n", i, Py_TYPE(item)->tp_name);

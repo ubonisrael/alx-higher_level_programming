@@ -13,3 +13,6 @@ class TestMaxInteger(unittest.TestCase):
         self.assertEqual(max_integer([1, 2, 3, 4]), 4)
         self.assertEqual(max_integer([-1, -2, -3, -4]), -1)
         self.assertEqual(max_integer([9, 0, -5, 12, 4]), 12)
+
+    def test_one_element(self):
+        self.assertEqual(max_integer([4]), 4)

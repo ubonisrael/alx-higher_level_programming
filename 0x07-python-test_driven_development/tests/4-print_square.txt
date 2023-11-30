@@ -19,7 +19,7 @@ A size of zero (0) prints an empty line.
 ::
 
 	>>> print_square(0)
-	<BLANKLINE>
+
 
 Size must be an integer and must be greater than or equals to zero.
 

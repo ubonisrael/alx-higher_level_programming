@@ -28,3 +28,12 @@ If last_name is not passed, an empty string is used
 	>>> print(say_my_name('Ubon'))
 	My name is Ubon 
 	None
+
+
+At least one name must be provided.
+
+::
+
+    >>> say_my_name()
+        Traceback (most recent call last):
+	TypeError: say_my_name() missing 1 required positional argument: 'first_name'

@@ -47,3 +47,29 @@ When a non integer or float is passed to the function, a TypeError is raised.
 	Traceback (most recent call last):
 	    ...
 	TypeError: b must be an integer
+
+The function will also fail when infinity is provided as argument
+
+::
+
+	>>> add_integer(float('inf'))
+	Traceback (most recent call last):
+	    ...
+	OverflowError: cannot convert float infinity to integer
+	>>> add_integer(100, float('inf'))
+	Traceback (most recent call last):
+	    ...
+	OverflowError: cannot convert float infinity to integer
+
+The function will also raise an error when Nan is passed as an argument
+
+::
+
+	>>> add_integer(float('nan'))
+	Traceback (most recent call last):
+	    ...
+	ValueError: cannot convert float NaN to integer
+	>>> add_integer(2, float('nan'))
+	Traceback (most recent call last):
+	    ...
+	ValueError: cannot convert float NaN to integer

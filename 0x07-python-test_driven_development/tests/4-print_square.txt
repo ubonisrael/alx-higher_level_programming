@@ -41,3 +41,7 @@ Size must be an integer and must be greater than or equals to zero.
 	Traceback (most recent call last):
 	    ...
 	TypeError: size must be an integer
+	>>> print_square()
+	Traceback (most recent call last):
+	    ...
+	TypeError: print_square() missing 1 required positional argument: 'size'

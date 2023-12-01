@@ -50,7 +50,7 @@ def matrix_mul(m_a, m_b):
             raise TypeError("each row of m_b must be of the same size")
     len_b = len(m_b)
     if len_b == 0:
-        raise TypeError("m_b can't be empty")
+        raise ValueError("m_b can't be empty")
 
     if row_size_a != len_b:
         raise ValueError("m_a and m_b can't be multiplied")

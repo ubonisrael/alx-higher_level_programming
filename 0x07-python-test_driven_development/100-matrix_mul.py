@@ -59,7 +59,7 @@ def matrix_mul(m_a, m_b):
     for x in m_a:
         mat = []
         i = 0
-        while i < len_b:
+        while i < row_size_b:
             sum = 0
             for y, m in enumerate(m_b):
                 sum += x[0+y] * m[i]

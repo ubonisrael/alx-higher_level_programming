@@ -6,9 +6,11 @@ class BaseGeometry:
     """ A class that defines a geometric shape. """
 
     def area(self):
+        """ Raises an exception. """
         raise Exception('area() is not implemented')
 
     def integer_validator(self, name, value):
+        """ Validates value of name attribute. """
         if not isinstance(value, int):
             raise TypeError('{} must be an integer'.format(name))
         if value < 1:

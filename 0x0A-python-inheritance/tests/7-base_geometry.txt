@@ -1,0 +1,47 @@
+=============================
+Tests for 6-base_geometry.py
+=============================
+
+``class BaseGeometry`` has two methods area() and integer_validator()
+
+calling area() throws an Exception.
+
+::
+
+	>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+	>>> bg = BaseGeometry()
+	>>> bg.area()
+	Traceback (most recent call last):
+	Exception: area() is not implemented
+	>>> bg.area(5)
+	Traceback (most recent call last):
+	TypeError: area() requires 1 positional argument but 2 were given
+
+integer_validator() validates its second argument and throws an error if there
+is a problem
+
+::
+
+	>>> bg.integer_validator('Toji', 100)
+
+If the value is less than 1, an error is thrown
+
+::
+
+	>>> bg.integer_validator('Maki' 0)
+	Traceback (most recent call last):
+	ValueError: Maki must be greater than 0
+
+The second argument must be an integer
+
+::
+
+	>>> bg.integer_validator('Panda', 2.2)
+	Traceback (most recent call last):
+	TypeError: Panda must be an integer
+	>>> bg.integer_validator('Panda', '2')
+	Traceback (most recent call last):
+	TypeError: Panda must be an integer
+	>>> bg.integer_validator('Panda', [1])
+	Traceback (most recent call last):
+	TypeError: Panda must be an integer

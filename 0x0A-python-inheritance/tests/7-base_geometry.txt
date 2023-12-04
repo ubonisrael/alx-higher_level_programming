@@ -43,6 +43,15 @@ The second argument must be an integer
 	>>> bg.integer_validator('Panda', 2.2)
 	Traceback (most recent call last):
 	TypeError: Panda must be an integer
+	>>> bg.integer_validator('Panda', None)
+	Traceback (most recent call last):
+	TypeError: Panda must be an integer
+	>>> bg.integer_validator('Panda', set([1, 2]))
+	Traceback (most recent call last):
+	TypeError: Panda must be an integer
+	>>> bg.integer_validator('Panda', True)
+	Traceback (most recent call last):
+	TypeError: Panda must be an integer
 	>>> bg.integer_validator('Panda', '2')
 	Traceback (most recent call last):
 	TypeError: Panda must be an integer

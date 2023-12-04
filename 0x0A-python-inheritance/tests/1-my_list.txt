@@ -1,0 +1,25 @@
+========================
+How to use print_sorted
+========================
+
+``print_sorted()`` is a method of MyList that takes a list and then returns
+a sorted copy of the list. The original list isn't modified
+
+::
+
+	>>> MyList = __import__('1-my_list').MyList
+	>>> my_list = MyList()
+	>>> my_list.append(1)
+	>>> my_list.append(-4)
+	>>> my_list.append(7)
+	>>> my_list.append(5)
+	>>> my_list.append(2)
+	>>> print(my_list)
+	[1, -4, 7, 5, 2]
+	>>> my_list.print_sorted()
+	[-4, 1, 2, 5, 7]
+	>>> print(my_list)
+	[1, -4, 7, 5, 2]
+
+
+::

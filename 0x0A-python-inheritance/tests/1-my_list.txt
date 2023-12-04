@@ -22,6 +22,7 @@ a sorted copy of the list. The original list isn't modified
 	[-4, 1, 2, 5, 7]
 	>>> print(my_list)
 	[1, -4, 7, 5, 2]
-
-
-::
+	>>> my_list.print_sorted([2, -1])
+	Traceback (most recent call last):
+	    ...
+	TypeError: print_sorted() takes 1 positional argument but 2 were given

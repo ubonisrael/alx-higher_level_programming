@@ -21,7 +21,7 @@ class Rectangle(BaseGeometry):
     """ A class that defines a rectangular shape. """
     def __init__(self, width, height):
         """ Initializes the rectangle object. """
-        super().integer_validator('width', width)
-        super().integer_validator('height', height)
+        self.integer_validator('width', width)
         self.__width = width
+        self.integer_validator('height', height)
         self.__height = height

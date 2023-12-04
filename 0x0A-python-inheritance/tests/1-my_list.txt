@@ -11,6 +11,10 @@ a sorted copy of the list. The original list isn't modified
 	>>> my_list = MyList()
 	>>> print(my_list)
 	[]
+	>>> my_list.print_sorted()
+	[]
+	>>> print(my_list)
+	[]
 	>>> print(issubclass(MyList, list))
 	True
 	>>> my_list.append(1)

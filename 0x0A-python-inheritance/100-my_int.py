@@ -14,4 +14,4 @@ class MyInt(int):
         """Compares with another value and if equal, returns false
         vice versa.
         """
-        return True if not (self > other) and not (self < other)  else False
+        return True if not (self > other) and not (self < other) else False

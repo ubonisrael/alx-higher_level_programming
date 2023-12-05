@@ -22,7 +22,7 @@ def pascal_triangle(n):
     if n <= 0:
         return t_list
     i = 0
-    while i <= n:
+    while i < n:
         inner_list = []
         for x in range(0, i+1):
             inner_list.append(fac(i)//(fac(x) * fac(i-x)))

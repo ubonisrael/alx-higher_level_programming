@@ -1,6 +1,8 @@
 #!/usr/bin/python3
+"""A script that collects data about requests
+and prints them at intervals.
+"""
 import sys
-import fileinput
 
 file_size = 0
 status_codes = {'200': 0, '301': 0, '400': 0,

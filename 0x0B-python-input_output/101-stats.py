@@ -37,6 +37,7 @@ try:
 
         if count % 10 == 0:
             print_stats(status_codes, file_size)
+    print_stats(status_codes, file_size)
 except KeyboardInterrupt as e:
     print_stats(status_codes, file_size)
     raise

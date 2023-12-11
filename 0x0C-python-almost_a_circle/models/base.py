@@ -24,7 +24,7 @@ class Base:
         """Returns the JSON string representation"""
         import json
 
-        if list_dictionaries is None or len(list_dictionaries) == 0:
+        if list_dictionaries is None:
             list_dictionaries = []
         if type(list_dictionaries) is not list:
             raise TypeError("list_dictionaries must be a list of dictionaries")

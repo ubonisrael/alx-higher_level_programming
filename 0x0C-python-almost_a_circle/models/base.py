@@ -25,7 +25,7 @@ class Base:
         import json
 
         if list_dictionaries is None or len(list_dictionaries) == 0:
-            return "[]"
+            list_dictionaries = []
         if type(list_dictionaries) is not list:
             raise TypeError("list_dictionaries must be a list of dictionaries")
         for x in list_dictionaries:

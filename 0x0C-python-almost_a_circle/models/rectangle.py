@@ -113,7 +113,10 @@ class Rectangle(Base):
         """ Assigns an argument to each attribute. """
         l = len(args)
         if l > 0:
-            self.id = args[0]
+            if args[0] is None:
+                self.id = Rectangle.increment_nb()
+            else:
+                self.id = args[0]
         if l > 1:
             self.width = args[1]
         if l > 2:

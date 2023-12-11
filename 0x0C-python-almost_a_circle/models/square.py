@@ -12,7 +12,9 @@ class Square(Rectangle):
     def __str__(self):
         """Returns an informal representation of the object."""
         return "[{:s}] ({:d}) {:d}/{:d} - {:d}".format(self.__class__.__name__,
-                                                       self.id, self._Rectangle__x, self._Rectangle__y,
+                                                       self.id,
+                                                       self._Rectangle__x,
+                                                       self._Rectangle__y,
                                                        self._Rectangle__width)
 
     @property
@@ -38,13 +40,14 @@ class Square(Rectangle):
         if l > 1:
             self.size = args[1]
         if l > 2:
-            self._Rectangle__x = args[2]
+            self.x = args[2]
         if l > 3:
-            self._Rectangle__y = args[3]
+            self.y = args[3]
         if l == 0 and len(kwargs) > 0:
             for key, value in kwargs.items():
                 setattr(self, key, value)
 
     def to_dictionary(self):
         """Returns dictionary representation of object."""
-        return {'x': self._Rectangle__x, 'y': self._Rectangle__y, 'id': self.id, 'size': self._Rectangle__width}
+        return {'x': self._Rectangle__x, 'y': self._Rectangle__y,
+                'id': self.id, 'size': self._Rectangle__width}

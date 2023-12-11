@@ -52,10 +52,27 @@ class RectangleTest_Init(unittest.TestCase):
             str(x.exception))
 
     def test_missing_args(self):
-        msg = ("__init__() missing 2 required positional arguments: 'width' and 'height'")
+        msg = ("__init__() missing 2 required positional arguments:"
+               + " 'width' and 'height'")
         with self.assertRaises(TypeError) as x:
             r = Rectangle()
         self.assertEqual(str(x.exception), msg)
+
+    def test_width_private(self):
+        with self.assertRaises(AttributeError):
+            print(Rectangle(5, 5, 0, 0, 1).__width)
+
+    def test_height_private(self):
+        with self.assertRaises(AttributeError):
+            print(Rectangle(5, 5, 0, 0, 1).__height)
+
+    def test_x_private(self):
+        with self.assertRaises(AttributeError):
+            print(Rectangle(5, 5, 0, 0, 1).__x)
+
+    def test_y_private(self):
+        with self.assertRaises(AttributeError):
+            print(Rectangle(5, 5, 0, 0, 1).__y)
 
 
 class TestRectangle_Attributes(unittest.TestCase):

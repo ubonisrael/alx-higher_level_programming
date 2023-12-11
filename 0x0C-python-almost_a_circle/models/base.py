@@ -25,9 +25,11 @@ class Base:
         import json
 
         if list_dictionaries is None:
-            list_dictionaries = []
+            return "[]"
         if type(list_dictionaries) is not list:
             raise TypeError("list_dictionaries must be a list of dictionaries")
+        if len(list_dictionaries) == 0:
+            return "[]"
         for x in list_dictionaries:
             if type(x) is not dict:
                 raise TypeError(
@@ -39,11 +41,19 @@ class Base:
         """Writes the JSON string representation of list_objs to a file"""
         import json
 
+        new_list_objs = []
         with open("{}.json".format(cls.__name__), "w", encoding="utf-8") as f:
-            if list_objs is None or len(list_objs) == 0:
-                f.write("")
+            if list_objs is None:
+                f.write(cls.to_json_string(new_list_objs))
+            elif type(list_objs) is not list:
+                raise TypeError('list_objs must be a list of instances')
+            elif len(list_objs) == 0:
+                f.write(cls.to_json_string(new_list_objs))
             else:
-                new_list_objs = [x.to_dictionary() for x in list_objs]
+                for x in list_objs:
+                    if not isinstance(x, Base):
+                        raise TypeError('list_objs must be a list of instances')
+                    new_list_objs.append(x.to_dictionary())
                 f.write(cls.to_json_string(new_list_objs))
 
     @staticmethod

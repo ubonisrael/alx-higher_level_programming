@@ -52,7 +52,8 @@ class Base:
             else:
                 for x in list_objs:
                     if not isinstance(x, Base):
-                        raise TypeError('list_objs must be a list of instances')
+                        raise TypeError(
+                            'list_objs must be a list of instances')
                     new_list_objs.append(x.to_dictionary())
                 f.write(cls.to_json_string(new_list_objs))
 

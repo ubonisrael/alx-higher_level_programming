@@ -27,10 +27,11 @@ class Base:
         if list_dictionaries is None or len(list_dictionaries) == 0:
             return "[]"
         if type(list_dictionaries) is not list:
-            raise TypeError
+            raise TypeError("list_dictionaries must be a list of dictionaries")
         for x in list_dictionaries:
             if type(x) is not dict:
-                raise TypeError
+                raise TypeError(
+                    "list_dictionaries must be a list of dictionaries")
         return json.dumps(list_dictionaries)
 
     @classmethod

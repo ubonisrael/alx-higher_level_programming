@@ -13,6 +13,9 @@ class RectangleTest_Init(unittest.TestCase):
     def test_rect_instance(self):
         self.assertIsInstance(Rectangle(1, 1), Base)
 
+    def test_rect_class_instance(self):
+        self.assertFalse(isinstance(Rectangle, Base))
+
     def test_rect_subclass(self):
         self.assertTrue(issubclass(Rectangle, Base))
 
@@ -40,6 +43,19 @@ class RectangleTest_Init(unittest.TestCase):
         c = Rectangle(1, 3)
         self.assertEqual(c.id, a.id + 1)
         self.assertEqual(b.id, 12)
+
+    def test_missing_one_arg(self):
+        with self.assertRaises(TypeError) as x:
+            r = Rectangle(1)
+        self.assertEqual(
+            "__init__() missing 1 required positional argument: 'height'",
+            str(x.exception))
+
+    def test_missing_args(self):
+        msg = ("__init__() missing 2 required positional arguments: 'width' and 'height'")
+        with self.assertRaises(TypeError) as x:
+            r = Rectangle()
+        self.assertEqual(str(x.exception), msg)
 
 
 class TestRectangle_Attributes(unittest.TestCase):
@@ -256,8 +272,10 @@ class TestRectangle_Area(unittest.TestCase):
         self.assertEqual(r.area(), 999999998000000001)
 
     def test_area_args(self):
-        with self.assertRaises(TypeError):
-            print(Rectangle(2, 4).area(1))
+        with self.assertRaises(TypeError) as x:
+            Rectangle(2, 4).area(1)
+        self.assertEqual(str(x.exception),
+                         "area() takes 1 positional argument but 2 were given")
 
 
 class TestRectangle_Display(unittest.TestCase):
@@ -276,8 +294,11 @@ class TestRectangle_Display(unittest.TestCase):
         return capture
 
     def test_display_with_args(self):
-        with self.assertRaises(TypeError):
+        with self.assertRaises(TypeError) as x:
             Rectangle(2, 4).display(1)
+        self.assertEqual(
+            str(x.exception),
+            "display() takes 1 positional argument but 2 were given")
 
     def test_display_with_no_x_no_y(self):
         r = Rectangle(2, 2)
@@ -308,8 +329,11 @@ class TestRectangle_Display(unittest.TestCase):
 
     def test_str_arg(self):
         r = Rectangle(2, 2)
-        with self.assertRaises(TypeError):
+        with self.assertRaises(TypeError) as x:
             r.__str__(1)
+        self.assertEqual(
+            str(x.exception),
+            "__str__() takes 1 positional argument but 2 were given")
 
 
 class TestRectangle_Update(unittest.TestCase):

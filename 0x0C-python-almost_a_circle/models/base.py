@@ -70,7 +70,8 @@ class Base:
     def create(cls, **dictionary):
         """returns an instance with all attributes already set"""
         a = cls(1, 1)
-        a.update(**dictionary)
+        if a is not None:
+            a.update(**dictionary)
         return a
 
     @classmethod

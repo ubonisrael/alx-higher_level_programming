@@ -154,12 +154,12 @@ class TestBase_Save_To_File(unittest.TestCase):
     def test_save_none(self):
         Rectangle.save_to_file(None)
         with open("Rectangle.json", "r") as myFile:
-            self.assertEqual(myFile.read(), "")
+            self.assertEqual(myFile.read(), '[]')
 
     def test_empty_list(self):
-        Rectangle.save_to_file(None)
+        Rectangle.save_to_file([])
         with open("Rectangle.json", "r") as myFile:
-            self.assertEqual(myFile.read(), "")
+            self.assertEqual(myFile.read(), '[]')
 
     def test_no_args(self):
         with self.assertRaises(TypeError):

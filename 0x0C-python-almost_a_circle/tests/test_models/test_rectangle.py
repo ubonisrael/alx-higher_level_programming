@@ -177,7 +177,7 @@ class TestRectangle_Attributes(unittest.TestCase):
     def test_tuple_x(self):
         """Tests whether the x input values are correct. """
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
-            self.r.x = (1,3)
+            self.r.x = (1, 3)
 
     def test_list_x(self):
         """Tests whether the x input values are correct. """
@@ -193,7 +193,6 @@ class TestRectangle_Attributes(unittest.TestCase):
         """Tests whether the x input values are correct. """
         with self.assertRaisesRegex(ValueError, "x must be >= 0"):
             self.r.x = -1
-
 
     def test_y_getter(self):
         """Checks that getter and setter methos work as they should. """
@@ -474,7 +473,6 @@ class TestRectangle_Update(unittest.TestCase):
     def test_neg_x_kwargs(self):
         with self.assertRaisesRegex(ValueError, "y must be >= 0"):
             self.r.update(y=-5)
-
 
 
 class TestRectangle_toDictionary(unittest.TestCase):

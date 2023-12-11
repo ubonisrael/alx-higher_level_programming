@@ -2,6 +2,7 @@
 """Contains the rectangle class. """
 from models.base import Base
 
+
 class Rectangle(Base):
     """ A class that defines a rectangle. """
 
@@ -13,12 +14,10 @@ class Rectangle(Base):
         self.y = y
         super().__init__(id)
 
-
     @property
     def width(self):
         """Retrieves the width property. """
         return self.__width
-
 
     @width.setter
     def width(self, value):
@@ -29,12 +28,10 @@ class Rectangle(Base):
             raise ValueError("width must be > 0")
         self.__width = value
 
-
     @property
     def height(self):
         """Retrieves the height property. """
         return self.__height
-
 
     @height.setter
     def height(self, value):
@@ -45,12 +42,10 @@ class Rectangle(Base):
             raise ValueError("height must be > 0")
         self.__height = value
 
-
     @property
     def x(self):
         """Retrieves the x property. """
         return self.__x
-
 
     @x.setter
     def x(self, value):
@@ -61,12 +56,10 @@ class Rectangle(Base):
             raise ValueError("x must be >= 0")
         self.__x = value
 
-
     @property
     def y(self):
         """Retrieves the y property. """
         return self.__y
-
 
     @y.setter
     def y(self, value):
@@ -77,12 +70,9 @@ class Rectangle(Base):
             raise ValueError("y must be >= 0")
         self.__y = value
 
-
-
     def area(self):
         """ Calculates and returns the area of object. """
         return self.__width * self.__height
-
 
     def display(self):
         """Prints the rectangle to stdout. """
@@ -101,34 +91,33 @@ class Rectangle(Base):
                 print()
         print()
 
-
     def __str__(self):
         """Returns information about the object. """
-        return "[{:s}] ({:d}) {:d}/{:d} - {:d}/{:d}".format(self.__class__.__name__,
-                                                            self.id, self.__x, self.__y,
-                                                            self.__width, self.__height)
-
+        return "[{:s}] ({:d}) {:d}/{:d} - {:d}/{:d}".format(
+            self.__class__.__name__, self.id, self.__x, self.__y, self.__width,
+            self.__height)
 
     def update(self, *args, **kwargs):
         """ Assigns an argument to each attribute. """
-        l = len(args)
-        if l > 0:
+        length = len(args)
+        if length > 0:
             if args[0] is None:
                 self.id = Rectangle.increment_nb()
             else:
                 self.id = args[0]
-        if l > 1:
+        if length > 1:
             self.width = args[1]
-        if l > 2:
+        if length > 2:
             self.height = args[2]
-        if l > 3:
+        if length > 3:
             self.x = args[3]
-        if l > 4:
+        if length > 4:
             self.y = args[4]
-        if l == 0 and len(kwargs) > 0:
+        if length == 0 and len(kwargs) > 0:
             for key, value in kwargs.items():
                 setattr(self, key, value)
 
     def to_dictionary(self):
         """Returns dictionary representation of object."""
-        return {'x': self.x, 'y': self.y, 'id': self.id, 'height': self.height, 'width': self.width}
+        return {'x': self.x, 'y': self.y, 'id': self.id, 'height': self.height,
+                'width': self.width}

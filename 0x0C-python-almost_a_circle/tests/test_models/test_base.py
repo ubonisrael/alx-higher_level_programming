@@ -110,6 +110,7 @@ class TestBase_Save_To_File(unittest.TestCase):
             os.remove("Square.json")
         except IOError:
             pass
+
     def test_one_rectangle(self):
         a = Rectangle(10, 7, 2, 8)
         Rectangle.save_to_file([a])

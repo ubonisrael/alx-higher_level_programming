@@ -117,3 +117,17 @@ class Base:
                     row[k] = int(v)
                 csv_list.append(cls.create(**row))
         return csv_list
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """Draws rectangles and squares using the turtle graphics module."""
+        import turtle
+
+        window = turtle.Screen()
+        window.bgcolor("white")
+
+        turtle_1 = turtle.Turtle()
+        turtle_1.shape("turtle")
+        turtle_1.color("red")
+
+        window.exitonclick()

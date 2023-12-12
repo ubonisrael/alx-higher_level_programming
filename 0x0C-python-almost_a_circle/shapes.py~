@@ -1,0 +1,11 @@
+#!/usr/bin/python3
+from turtle import *
+
+window = Screen()
+window.bgcolor("white")
+
+turtle_1 = Turtle()
+turtle_1.shape("turtle")
+turtle_1.color("red")
+
+window.exitonclick()

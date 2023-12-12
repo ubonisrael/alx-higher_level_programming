@@ -16,13 +16,13 @@ class Base:
     @classmethod
     def increment_nb(cls):
         """Inrements the number of objects and returns the current value. """
-        cls.__nb_objects += 1
-        return cls.__nb_objects
+        Base.__nb_objects += 1
+        return Base.__nb_objects
 
     @staticmethod
     def to_json_string(list_dictionaries):
         """Returns the JSON string representation"""
-        import json
+        from json import dumps
 
         if list_dictionaries is None:
             return "[]"
@@ -34,7 +34,7 @@ class Base:
             json_list += json.dumps(x) + (
                 ", " if i+1 < len(sorted_list) else "")
         json_list += ']'"""
-        return json.dumps(list_dictionaries)
+        return dumps(list_dictionaries)
 
     @classmethod
     def save_to_file(cls, list_objs):

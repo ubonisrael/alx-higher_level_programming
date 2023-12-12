@@ -99,7 +99,7 @@ class Base:
             keys = ['id', 'width', 'height', 'x', 'y']
         elif cls.__name__ == 'Square':
             keys = ['id', 'size', 'x', 'y']
-        with open("{}.json".format(cls.__name__), "w", newline='') as csvf:
+        with open("{}.csv".format(cls.__name__), "w", newline='') as csvf:
             dict_writer = csv.DictWriter(csvf, fieldnames=keys)
             dict_writer.writeheader()
             dict_writer.writerows(list_dict)
@@ -110,7 +110,7 @@ class Base:
         import csv
 
         csv_list = []
-        with open("{:s}.json".format(cls.__name__), "r") as csvf:
+        with open("{:s}.csv".format(cls.__name__), "r") as csvf:
             reader = csv.DictReader(csvf)
             for row in reader:
                 for k, v in row.items():

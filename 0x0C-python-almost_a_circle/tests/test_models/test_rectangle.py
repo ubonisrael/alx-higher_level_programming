@@ -44,6 +44,46 @@ class RectangleTest_Init(unittest.TestCase):
         self.assertEqual(c.id, a.id + 1)
         self.assertEqual(b.id, 12)
 
+    def test_string_width(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            r = Rectangle("1", 2)
+
+    def test_neg_width(self):
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
+            r = Rectangle(-1, 2)
+
+    def test_zero_width(self):
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
+            r = Rectangle(0, 2)
+
+    def test_string_height(self):
+        with self.assertRaisesRegex(TypeError, "height must be an integer"):
+            r = Rectangle(1, "2")
+
+    def test_neg_height(self):
+        with self.assertRaisesRegex(ValueError, "height must be > 0"):
+            r = Rectangle(1, -1)
+
+    def test_zero_height(self):
+        with self.assertRaisesRegex(ValueError, "height must be > 0"):
+            r = Rectangle(1, 0)
+
+    def test_string_x(self):
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            r = Rectangle(1, 2, '3')
+
+    def test_neg_x(self):
+        with self.assertRaisesRegex(ValueError, "x must be >= 0"):
+            r = Rectangle(1, 2, -3)
+
+    def test_string_y(self):
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            r = Rectangle(1, 2, 3, '4')
+
+    def test_neg_y(self):
+        with self.assertRaisesRegex(ValueError, "y must be >= 0"):
+            r = Rectangle(1, 2, 0, -3)
+
     def test_missing_one_arg(self):
         with self.assertRaises(TypeError) as x:
             r = Rectangle(1)

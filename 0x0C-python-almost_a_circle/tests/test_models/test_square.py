@@ -48,6 +48,34 @@ class SquareTest_Init(unittest.TestCase):
         self.assertEqual(c.id, a.id + 1)
         self.assertEqual(b.id, 12)
 
+    def test_string_size(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            r = Square("1")
+
+    def test_neg_size(self):
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
+            r = Square(-1)
+
+    def test_zero_size(self):
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
+            r = Square(0)
+
+    def test_string_x(self):
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            r = Square(2, '3')
+
+    def test_neg_x(self):
+        with self.assertRaisesRegex(ValueError, "x must be >= 0"):
+            r = Square(2, -3)
+
+    def test_string_y(self):
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            r = Square(2, 3, '4')
+
+    def test_neg_y(self):
+        with self.assertRaisesRegex(ValueError, "y must be >= 0"):
+            r = Square(2, 0, -3)
+
 
 class TestSquare_Attributes(unittest.TestCase):
     """Runs checks for its attribute. """

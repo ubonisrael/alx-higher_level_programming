@@ -26,14 +26,14 @@ class Base:
 
         if list_dictionaries is None:
             return "[]"
-        if type(list_dictionaries) is not list:
-            raise TypeError("list_dictionaries must be a list of dictionaries")
-        if len(list_dictionaries) == 0:
-            return "[]"
-        for x in list_dictionaries:
-            if type(x) is not dict:
-                raise TypeError(
-                    "list_dictionaries must be a list of dictionaries")
+
+        """json_list = '['
+        sorted_list = sorted(
+            list_dictionaries, key=lambda x: x['id'], reverse=False)
+        for i, x in enumerate(sorted_list):
+            json_list += json.dumps(x) + (
+                ", " if i+1 < len(sorted_list) else "")
+        json_list += ']'"""
         return json.dumps(list_dictionaries)
 
     @classmethod
@@ -69,7 +69,10 @@ class Base:
     @classmethod
     def create(cls, **dictionary):
         """returns an instance with all attributes already set"""
-        a = cls(1, 1)
+        if cls.__name__ == 'Rectangle':
+            a = cls(1, 1)
+        else:
+            a = cls(1)
         if a is not None:
             a.update(**dictionary)
         return a

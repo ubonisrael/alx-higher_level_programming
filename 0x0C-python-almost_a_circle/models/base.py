@@ -88,3 +88,32 @@ class Base:
             return instance_list
         except FileNotFoundError as e:
             return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """writes the CSV representation of list_objs to a file"""
+        import csv
+
+        list_dict = [x.to_dictionary() for x in list_objs]
+        if cls.__name__ == 'Rectangle':
+            keys = ['id', 'width', 'height', 'x', 'y']
+        elif cls.__name__ == 'Square':
+            keys = ['id', 'size', 'x', 'y']
+        with open("{}.json".format(cls.__name__), "w", newline='') as csvf:
+            dict_writer = csv.DictWriter(csvf, fieldnames=keys)
+            dict_writer.writeheader()
+            dict_writer.writerows(list_dict)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """loads data from csv file"""
+        import csv
+
+        csv_list = []
+        with open("{:s}.json".format(cls.__name__), "r") as csvf:
+            reader = csv.DictReader(csvf)
+            for row in reader:
+                for k, v in row.items():
+                    row[k] = int(v)
+                csv_list.append(cls.create(**row))
+        return csv_list

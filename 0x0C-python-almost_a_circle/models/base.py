@@ -122,12 +122,47 @@ class Base:
     def draw(list_rectangles, list_squares):
         """Draws rectangles and squares using the turtle graphics module."""
         import turtle
+        from random import randrange
 
         window = turtle.Screen()
         window.bgcolor("white")
 
-        turtle_1 = turtle.Turtle()
-        turtle_1.shape("turtle")
-        turtle_1.color("red")
+        list_turtles = [turtle.Turtle() for x in list_rectangles]
+        for i, y in enumerate(list_rectangles):
+            tup = (randrange(0, 10) / 10,
+                   randrange(0, 10) / 10,
+                   randrange(0, 10) / 10)
+            list_turtles[i].shape("circle")
+            list_turtles[i].pensize(4)
+            list_turtles[i].penup()
+            list_turtles[i].goto(y.x, y.y)
+            list_turtles[i].pendown()
+            list_turtles[i].color("black", tup)
+            list_turtles[i].begin_fill()
+            for j in range(2):
+                list_turtles[i].forward(y.width)
+                list_turtles[i].right(90)
+                list_turtles[i].forward(y.height)
+                list_turtles[i].right(90)
+            list_turtles[i].end_fill()
+            list_turtles[i].hideturtle()
 
+        list_turtles = [turtle.Turtle() for x in list_squares]
+        for i, y in enumerate(list_squares):
+            tup = (randrange(0, 10) / 10,
+                   randrange(0, 10) / 10,
+                   randrange(0, 10) / 10)
+            list_turtles[i].shape("circle")
+            list_turtles[i].pensize(4)
+            list_turtles[i].penup()
+            list_turtles[i].goto(y.x, y.y)
+            list_turtles[i].pendown()
+            list_turtles[i].color("black", tup)
+            list_turtles[i].begin_fill()
+            for j in range(4):
+                list_turtles[i].forward(y.size)
+                list_turtles[i].right(90)
+            list_turtles[i].end_fill()
+            list_turtles[i].hideturtle()
+        
         window.exitonclick()

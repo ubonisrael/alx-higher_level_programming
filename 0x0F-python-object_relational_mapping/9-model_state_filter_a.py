@@ -6,13 +6,11 @@ from sqlalchemy.orm import sessionmaker
 from model_state import Base, State
 import sys
 
-port = 3306
-host = "localhost"
-
-connection_string = "mysql+mysqldb://{}:{}@{}:{}/{}".format(
-    sys.argv[1], sys.argv[2], host, port, sys.argv[3])
-
 if __name__ == "__main__":
+    port = 3306
+    host = "localhost"
+    connection_string = "mysql+mysqldb://{}:{}@{}:{}/{}".format(
+        sys.argv[1], sys.argv[2], host, port, sys.argv[3])
     engine = create_engine(connection_string)
     Session = sessionmaker(bind=engine)
     session = Session()

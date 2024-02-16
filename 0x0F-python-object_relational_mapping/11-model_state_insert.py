@@ -9,13 +9,14 @@ if __name__ == "__main__":
     port = 3306
     host = "localhost"
 
-    connection_string = "mysql+mysqldb://{}:{}@{}:{}/{}".format(argv[1], argv[2], host, port, argv[3])
+    connection_string = "mysql+mysqldb://{}:{}@{}:{}/{}".format(
+        argv[1], argv[2], host, port, argv[3])
 
     engine = create_engine(connection_string)
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    louisiana = State(name = 'Louisiana')
+    louisiana = State(name='Louisiana')
     session.add(louisiana)
     session.commit()
     print(louisiana.id)

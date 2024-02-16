@@ -9,13 +9,15 @@ import sys
 port = 3306
 host = "localhost"
 
-connection_string = "mysql+mysqldb://{}:{}@{}:{}/{}".format(sys.argv[1], sys.argv[2], host, port, sys.argv[3])
+connection_string = "mysql+mysqldb://{}:{}@{}:{}/{}".format(
+    sys.argv[1], sys.argv[2], host, port, sys.argv[3])
 
-engine = create_engine(connection_string)
-Session = sessionmaker(bind=engine)
-session = Session()
+if __name__ == "__main__":
+    engine = create_engine(connection_string)
+    Session = sessionmaker(bind=engine)
+    session = Session()
 
-q = session.query(State).filter(State.name.ilike("%a%")).order_by(State.id)
+    q = session.query(State).filter(State.name.ilike("%a%")).order_by(State.id)
 
-for c in q:
-    print("{}: {}".format(c.id, c.name))
+    for c in q:
+        print("{}: {}".format(c.id, c.name))

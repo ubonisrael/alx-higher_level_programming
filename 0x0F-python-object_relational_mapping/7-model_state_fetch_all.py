@@ -11,8 +11,8 @@ connection_string = "mysql+mysqldb://{}:{}@{}:{}/{}".format(
     sys.argv[1], sys.argv[2], host, port, sys.argv[3])
 
 if __name__ == "__main__":
-
     engine = create_engine(connection_string)
+    Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
 

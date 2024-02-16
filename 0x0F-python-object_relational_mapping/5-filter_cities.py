@@ -16,12 +16,15 @@ if __name__ == "__main__":
     cur.execute(query, (sys.argv[4],))
     rows = cur.fetchall()
     length = len(rows)
-    for row in rows:
-        print(row[0], end='')
-        length -= 1
-        if length > 0:
-            print(', ', end='')
-        else:
-            print()
+    if length > 0:
+        for row in rows:
+            print(row[0], end='')
+            length -= 1
+            if length > 0:
+                print(', ', end='')
+            else:
+                print()
+    else:
+        print()
     cur.close()
     mydb.close()

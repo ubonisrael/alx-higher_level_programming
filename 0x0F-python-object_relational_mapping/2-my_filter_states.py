@@ -6,13 +6,17 @@ import MySQLdb
 import sys
 
 if __name__ == "__main__":
-    mydb = MySQLdb.connect(host="localhost", port=3306,
+    try:
+        mydb = MySQLdb.connect(host="localhost", port=3306,
                            user=sys.argv[1], passwd=sys.argv[2],
                            db=sys.argv[3])
+    except MySQLdb.Error as e:
+        print('{}'.format(e))
+        sys.exit(1)
 
     cur = mydb.cursor()
 
-    query = "SELECT * FROM states WHERE name = '{}' ORDER BY id".format(
+    query = "SELECT * FROM states WHERE name = '{}' ORDER BY id ASC".format(
         sys.argv[4])
     cur.execute(query)
     rows = cur.fetchall()

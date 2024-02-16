@@ -23,3 +23,5 @@ if __name__ == "__main__":
         print("Nothing")
     else:
         print("{}: {}".format(q.id, q.name))
+    
+    session.close()

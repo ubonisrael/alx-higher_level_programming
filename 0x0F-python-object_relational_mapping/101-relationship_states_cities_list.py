@@ -20,8 +20,8 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    new_state = State(name="New York")
-    new_state.cities = [City(name="New York"), City(name="Manhattan"), City(name="Brooklyn")]
-
-    session.add(new_state)
-    session.commit()
+    q = session.query(State).order_by(State.id)
+    for state in q:
+        print("{}: {}".format(state.id, state.name))
+        for city in state.cities:
+            print("    {}: {}".format(city.id, city.name))

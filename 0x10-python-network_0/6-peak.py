@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# Finds the peak in an array
+"""Finds the peak in an array"""
 
 def find_peak(list_of_integers):
     """Finds the peak in an array"""

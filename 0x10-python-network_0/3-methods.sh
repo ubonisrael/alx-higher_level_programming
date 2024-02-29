@@ -1,3 +1,3 @@
 #!/bin/bash
-# A script that gets the content lenght of an url
-curl -s -X "OPTIONS" "$1"
+# A script that gets the http methods supported by a server
+curl -sI "$1" | grep -i 'Allow' | cut -d " " -f 2-

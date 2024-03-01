@@ -10,4 +10,3 @@ if __name__ == "__main__":
         print("    - type: {}".format(type(msg)))
         print("    - content: {}".format(msg))
         print("    - utf-8 content: {}".format(msg.decode("utf-8")))
-

@@ -11,8 +11,8 @@ if __name__ == "__main__":
     res = requests.get(url)
     try:
         res = res.json()
-        for i in range(10):
-            print("{}: {}".format(res[i]['sha'],
-                                  res[i]['commit']['author']['name']))
+        for i in res:
+            print("{}: {}".format(i['sha'],
+                                  i['commit']['author']['name']))
     except KeyError as e:
         print("None")

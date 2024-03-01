@@ -7,7 +7,7 @@ import requests
 
 if __name__ == "__main__":
     url = "https://api.github.com/repos/{}/{}/commits?per_page=10".\
-        format(argv[1], argv[2])
+        format(argv[2], argv[1])
     res = requests.get(url)
     try:
         res = res.json()

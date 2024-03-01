@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 # Fetches an url using urllib
-from urllib import request
+import urllib
 
 if __name__ == "__main__":
-    req = request.Request('https://alx-intranet.hbtn.io/status')
-    with request.urlopen(req) as res:
+    req = urllib.request.Request('https://alx-intranet.hbtn.io/status')
+    with urllib.request.urlopen(req) as res:
         msg = res.read()
         print("Body response:")
         print("    - type: {}".format(type(msg)))

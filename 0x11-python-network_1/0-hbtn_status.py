@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# Fetches an url using urllib
+"""Fetches an url using urllib"""
 import urllib
 
 if __name__ == "__main__":

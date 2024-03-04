@@ -21,14 +21,14 @@ for j in range(10):
             print("Wrong answer {}".format(res))
             exit(1)
 
-    # for i in range(10):
-    #     res = find_peak(a1)
-    #     if res not in answers:
-    #         print("Wrong answer 2 {}".format(res))
-    #         exit(1)
+    for i in range(10):
+        res = find_peak(a1)
+        if res not in answers:
+            print("Wrong answer 2 {}".format(res))
+            exit(1)
 
-    # for i in range(10):
-    #     find_peak(a2)
+    for i in range(10):
+        find_peak(a2)
     
     end_time = time.time()
     avg_time += (end_time - start_time)

@@ -8,8 +8,9 @@ request(`${process.argv[2]}`, (error, response, body) => {
     const data = JSON.parse(body);
     let apps = 0;
     data.results.forEach(movie => {
-      const id = 'https://swapi-api.alx-tools.com/api/people/18/';
-      if (movie.characters.indexOf(id) >= 0) apps++;
+      movie.characters.forEach(char => {
+        if (char.includes('18')) apps++;
+      });
     });
     console.log(apps);
   }

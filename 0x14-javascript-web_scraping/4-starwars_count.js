@@ -6,12 +6,11 @@ request(`${process.argv[2]}`, (error, response, body) => {
     console.error(error);
   } else {
     const data = JSON.parse(body);
-    // const wedge_antills_app = data.results.filter()
-    const apps = data.results.filter(movie => {
+    let apps = 0;
+    data.results.forEach(movie => {
       const id = 'https://swapi-api.alx-tools.com/api/people/18/';
-      if (movie.characters.indexOf(id) >= 0) return true;
-      return false;
+      if (movie.characters.indexOf(id) >= 0) apps++;
     });
-    console.log(apps.length);
+    console.log(apps);
   }
 });

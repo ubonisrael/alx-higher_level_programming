@@ -1,4 +1,4 @@
-$('#toggle_header').on('click', () => {
+$('DIV#toggle_header').on('click', () => {
   if ($('header').hasClass('red')) {
     $('header').addClass('green');
     $('header').removeClass('red');

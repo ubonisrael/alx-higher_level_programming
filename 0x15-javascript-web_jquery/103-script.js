@@ -1,6 +1,6 @@
 $(() => {
-  $('#btn_translate').on('click', fetchData);
-  $('#language_code').keypress((e) => {
+  $('INPUT#btn_translate').on('click', fetchData);
+  $('INPUT#language_code').keypress((e) => {
     if (e.which === 13) {
       fetchData();
     }
@@ -9,9 +9,9 @@ $(() => {
 
 function fetchData () {
   $.get(
-    `https://hellosalut.stefanbohacek.dev/?lang=${$('#language_code').val()}`,
+    `https://hellosalut.stefanbohacek.dev/?lang=${$('INPUT#language_code').val()}`,
     (data) => {
-      $('#hello').text(data.hello);
+      $('DIV#hello').text(data.hello);
     }
   );
 }

@@ -1,8 +1,8 @@
 $(() => {
-  $('#btn_translate').on('click', () => {
-    $.get(`https://hellosalut.stefanbohacek.dev/?lang=${$('#language_code').val()}`, (data) => {
+  $('INPUT#btn_translate').on('click', () => {
+    $.get(`https://hellosalut.stefanbohacek.dev/?lang=${$('INPUT#language_code').val()}`, (data) => {
     //   console.log(data);
-      $('#hello').text(data.hello);
+      $('DIV#hello').text(data.hello);
     });
   });
 });
